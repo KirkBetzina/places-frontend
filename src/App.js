@@ -3,40 +3,40 @@ import './App.css';
 import {Route, Link, Switch} from "react-router-dom"
 import Display from "./Display"
 import Form from "./Form"
-​
+
 function App() {
-​
- const url = "https://places-kwb.herokuapp.com/"
-​
+
+ const url = "https://places-kwb.herokuapp.com"
+
  const [places, setPlaces] = React.useState([])
-​
+
  const emptyPlace = {
    name: "",
    description: "",
    img: "",
  };
-​
+
 //  name: String,
 //  img: String,
 //  description: String,
-​
+
 const [selectedPlace, setSelectedPlace] = React.useState(emptyPlace)
-​
+
 //This gets the places
-​
+
 const getPlaces = () => {
-​
+
   fetch(url + "/places/")
     .then((response) => response.json())
     .then((data) => {
       setPlaces(data);
     });
 };
-​
+
 React.useEffect(() => {
   getPlaces();
 }, []);
-​
+
 //handle create for the form
 const handleCreate = (newPlace) => {
   fetch(url + "/places/", {
@@ -47,7 +47,7 @@ const handleCreate = (newPlace) => {
     body: JSON.stringify(newPlace),
   }).then(() => getPlaces());
 };
-​
+
 //handleUpdate
 const handleUpdate = (place) => {
   fetch(url + "/places/" + place._id, {
@@ -58,12 +58,12 @@ const handleUpdate = (place) => {
     body: JSON.stringify(place),
   }).then(() => getPlaces());
 };
-​
+
 //function for updating places
 const selectPlace = (place) => {
   setSelectedPlace(place);
 };
-​
+
 //deleted individual places
 const deletePlace = (place) => {
   fetch(url + "/places/" + place._id, {
@@ -73,7 +73,7 @@ const deletePlace = (place) => {
     getPlaces()
   })
 }
-​
+
   return (
     <div className="App">
     <h1>Places Website!</h1>
@@ -122,5 +122,5 @@ const deletePlace = (place) => {
     </div>
   );
 }
-​
+
 export default App;

@@ -9,7 +9,7 @@ const Display = (props) => {
     <div style={{textAlign: "center"}}>
       {places.map((place) => (
         <article key={place._id}>
-          <img src={place.img}/>
+          <img src={place.img} alt=""/>
           <h1>{place.name}</h1>
           <h3>{place.age}</h3>
           <button onClick={() => {

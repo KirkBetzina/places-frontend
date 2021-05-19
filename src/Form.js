@@ -2,13 +2,13 @@ import React from "react";
 
 const Form = (props) => {
   //STATE FOR THE FORM
-  const [formData, setFormData] = React.useState(props.dog);
-
+  const [formData, setFormData] = React.useState(props.place);
+  
   //FUNCTIONS
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent Form from Refreshing
-    props.handleSubmit(formData); // Submit to Parents desired function
-    props.history.push("/"); //Push back to display page
+    props.handleSubmit(formData); // Submit to Places desired function
+    props.history.push("/places"); //Push back to display page
   };
 
   const handleChange = (event) => {
@@ -26,7 +26,7 @@ const Form = (props) => {
       <input
         type="text"
         name="decription"
-        value={formData.age}
+        value={formData._id}
         onChange={handleChange}
       />
       <input
