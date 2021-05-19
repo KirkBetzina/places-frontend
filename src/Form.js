@@ -8,7 +8,7 @@ const Form = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevent Form from Refreshing
     props.handleSubmit(formData); // Submit to Places desired function
-    props.history.push("/places"); //Push back to display page
+    props.history.push("/"); //Push back to display page
   };
 
   const handleChange = (event) => {
