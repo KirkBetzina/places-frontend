@@ -39,7 +39,7 @@ React.useEffect(() => {
 
 //handle create for the form
 const handleCreate = (newPlace) => {
-  fetch(url + "/places", {
+  fetch(url + "/places/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const handleCreate = (newPlace) => {
 
 //handleUpdate
 const handleUpdate = (place) => {
-  fetch(url + "/places" + place._id, {
+  fetch(url + "/places/" + place._id, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const selectPlace = (place) => {
 
 //deleted individual places
 const deletePlace = (place) => {
-  fetch(url + "/places" + place._id, {
+  fetch(url + "/places/" + place._id, {
     method: "delete"
   })
   .then(() => {
